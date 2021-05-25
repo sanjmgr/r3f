@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Physics } from '@react-three/cannon'
+import { OrbitControls, Stars } from '@react-three/drei'
+import { Canvas } from '@react-three/fiber'
+import { Box, Plane } from './components'
+import './styles.css'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='webgl'>
+      <Canvas>
+        <OrbitControls />
+        <Stars />
+        <Physics>
+          <Box />
+          <Plane />
+        </Physics>
+      </Canvas>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
